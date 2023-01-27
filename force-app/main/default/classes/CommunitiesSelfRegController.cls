@@ -25,7 +25,7 @@ public class CommunitiesSelfRegController {
     
            // it's okay if password is null - we'll send the user a random password in that case
         if (!isValidPassword()) {
-            ApexPages.Message msg = new ApexPages.Message(ApexPages.Severity.ERROR, Label.site.passwords_dont_match);
+            ApexPages.Message msg = new ApexPages.Message(ApexPages.Severity.ERROR, 'Label.site.passwords_dont_match');
             ApexPages.addMessage(msg);
             return null;
         }    
@@ -46,7 +46,7 @@ public class CommunitiesSelfRegController {
 		
         String userId;
 
-        try {
+       /* try {
             userId = Site.createExternalUser(u, accountId, password);
         } catch(Site.ExternalUserCreateException ex) {
             List<String> errors = ex.getDisplayMessages();
@@ -64,11 +64,11 @@ public class CommunitiesSelfRegController {
                 return Site.login(userName, password, ApexPages.currentPage().getParameters().get('startURL'));
             }
             else {
-                PageReference page = System.Page.CommunitiesSelfRegConfirm;
+                //PageReference page = System.Page.CommunitiesSelfRegConfirm;
                 page.setRedirect(true);
                 return page;
             }
-        }
+        }*/
         return null;
     }
 }
